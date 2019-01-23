@@ -5,10 +5,10 @@ import csv
 from requests.auth import HTTPBasicAuth
 
 # enter in customer business unit id here
-business_unit_id = '556727b40000ff00057fbace'
+business_unit_id = 'exampleBUID'
 
 # update location tag here
-tagValue = "nighttag"
+tagValue = "examplelocationtag"
 
 fivestars = 0
 fourstars = 0
@@ -20,7 +20,7 @@ reviews = 0
 page = 1
 
 # API call - "Get a business unit's reviews" filtered by tag (aka location)
-url = 'https://api.trustpilot.com/v1/business-units/' + business_unit_id + '/reviews?apikey=x4XHG3cSA2UWj1LBk4stD0ypMtgZ49oP&tagValue=' + tagValue + '&perPage=100&page=%s'
+url = 'https://api.trustpilot.com/v1/business-units/' + business_unit_id + '/reviews?apikey=APIKEY&tagValue=' + tagValue + '&perPage=100&page=%s'
 response = requests.get(url % page)
 json_data = response.json()
 allstars = [item['stars'] for item in json_data['reviews']]
